@@ -36,3 +36,10 @@ section{
     border-radius: 55px;
     background-color: slategray;
   }
+  td img {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
