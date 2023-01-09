@@ -43,7 +43,7 @@ public class ProductService {
 	}
 	@Transactional
 	public Product updateProduct (Long id , Product product) {
-		Optional<Product> productData = Optional.of(productRepository.findById(id).orElseThrow(()-> new NotFoundExeception("student with id "+ id + " does not exist")));;
+		Optional<Product> productData = Optional.of(productRepository.findById(id).orElseThrow(()-> new NotFoundExeception("product with id "+ id + " does not exist")));;
 
 		if (productData.isPresent()) {
 			Product _product = productData.get();

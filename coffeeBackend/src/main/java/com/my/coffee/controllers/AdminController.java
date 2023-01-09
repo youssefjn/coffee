@@ -28,11 +28,6 @@ public class AdminController {
     public AdminController(ProductService productService) {
         this.productService = productService;
     }
-
-    @GetMapping(path = "/basicauth")
-    public ApiResponse basicauth() {
-        return new ApiResponse(HttpStatus.ACCEPTED.value(),"You are authenticated.",new Date(),"Welcome to your space.");
-    }
     @PostMapping("/product/add")
     public ResponseEntity<?> addProduct(@RequestBody Product product) {
        

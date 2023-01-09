@@ -1,6 +1,6 @@
 package com.my.coffee.entities;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -24,7 +24,7 @@ public class WebOrder {
 
     String phoneNumber;
 
-    LocalDateTime  date;
+    Date  date;
 
     String address;
     
