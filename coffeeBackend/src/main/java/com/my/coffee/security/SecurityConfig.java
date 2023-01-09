@@ -30,7 +30,7 @@ public class SecurityConfig {
 		.authorizeRequests(auth -> {
 			auth.antMatchers("/").permitAll();
 			auth.antMatchers("/home/all").permitAll();
-			auth.antMatchers("/admin").hasRole("ADMIN");
+			auth.antMatchers("/admin/**").hasRole("ADMIN");
 		})
 		.httpBasic(Customizer.withDefaults())
 		.build();	}

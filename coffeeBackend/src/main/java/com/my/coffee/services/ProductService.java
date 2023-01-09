@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.my.coffee.entities.Product;
+import com.my.coffee.exceptions.NotFoundExeception;
 import com.my.coffee.repositories.ProductRepository;
 
 @Service
@@ -27,7 +28,7 @@ public class ProductService {
 
 	public Product getProductById(Long id) {
 		Product product = productRepository.findById(id).orElseThrow(()-> 
-		new IllegalStateException("Product with id "+ id + " does not exist"));
+		new NotFoundExeception("Product with id "+ id + " does not exist"));
 		return product;
 	}
 
@@ -37,12 +38,12 @@ public class ProductService {
 
 	public void deleteProduct(Long id) {
 		if ( !productRepository.existsById(id)) {
-			throw new IllegalStateException("id " + id +" doesn't exist");}
+			throw new NotFoundExeception("id " + id +" doesn't exist");}
 		productRepository.deleteById(id);
 	}
 	@Transactional
 	public Product updateProduct (Long id , Product product) {
-		Optional<Product> productData = Optional.of(productRepository.findById(id).orElseThrow(()-> new IllegalStateException("student with id "+ id + " does not exist")));;
+		Optional<Product> productData = Optional.of(productRepository.findById(id).orElseThrow(()-> new NotFoundExeception("student with id "+ id + " does not exist")));;
 
 		if (productData.isPresent()) {
 			Product _product = productData.get();
