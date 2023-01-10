@@ -1,7 +1,6 @@
 package com.my.coffee.controllers;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.my.coffee.entities.ApiResponse;
 import com.my.coffee.entities.Product;
 import com.my.coffee.services.ProductService;
 @CrossOrigin(origins = "*")
