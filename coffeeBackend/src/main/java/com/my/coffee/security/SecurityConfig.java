@@ -28,8 +28,7 @@ public class SecurityConfig {
 		return http
 		.csrf(csrf -> csrf.disable())
 		.authorizeRequests(auth -> {
-			auth.antMatchers("/").permitAll();
-			auth.antMatchers("/home/all").permitAll();
+			auth.anyRequest().permitAll();
 			auth.antMatchers("/admin/**").hasRole("ADMIN");
 		})
 		.httpBasic(Customizer.withDefaults())
