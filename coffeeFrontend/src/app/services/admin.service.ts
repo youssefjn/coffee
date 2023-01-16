@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Product } from '../Entities/Product';
 const AUTH_API = 'http://localhost:8080/admin/';
 
 const httpOptions = {
@@ -21,12 +22,9 @@ export class adminServiceService {
     }, httpOptions);
   }
 
-  addProduct(username: string, email: string, password: string, roles : string): Observable<any> {
-    return this.http.post(AUTH_API + 'signup', {
-      username,
-      email,
-      password,
-      roles
+  addProduct(product :Product): Observable<any> {
+    return this.http.post(AUTH_API + '/product/add', {
+     product
     }, httpOptions);
   }
 }
